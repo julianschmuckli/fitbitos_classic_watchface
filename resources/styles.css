@@ -1,0 +1,23 @@
+.hourHand {
+  fill: white;
+}
+
+.innerHourHand{
+  fill: black;
+}
+
+.minuteHand{
+  fill: white;
+}
+
+.secondHand{
+  fill:"#E8BD37";
+}
+
+.hours{
+  fill: white;
+}
+
+.opacity{
+  opacity:1.0 !important;
+}

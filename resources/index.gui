@@ -1,0 +1,90 @@
+<svg viewport-fill="#000000">
+  <rect x="0" y="0" pointer-events="visible" width="100%" height="100%" id="background" fill="#000000" />
+  <!-- Hours -->
+  <g transform="rotate(0) translate(50%,50%)">
+    <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+  </g>
+  <g transform="rotate(30) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  <g transform="rotate(60) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  
+  <g transform="rotate(90) translate(50%,50%)">
+  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+  </g>
+  <g transform="rotate(120) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  <g transform="rotate(150) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  
+  <g transform="rotate(180) translate(50%,50%)">
+  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+  </g>
+  <g transform="rotate(210) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  <g transform="rotate(240) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  
+  <g transform="rotate(270) translate(50%,50%)">
+  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+  </g>
+  <g transform="rotate(300) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  <g transform="rotate(330) translate(50%,50%)">
+  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  
+  <!-- Day -->
+  <rect x="50%+42" y="50%-12" width="46" height="37" class="day_box" fill="white"/>
+  <rect x="50%+43" y="50%-11" width="44" height="35" class="day_box" fill="black"/>
+  
+  <text x="50%+65" y="50%+15"
+        id="date"
+        font-family="System-Regular" fill="white"
+        font-size="25" font-weight="bold"
+        text-anchor="middle">00</text>
+  
+  <!-- Clock -->
+  
+  <symbol id="minHand">
+    <g id="mins" pointer-events="visible" transform="translate(50%,50%)">
+      <rect x="$-4" y="-95" width="8" height="110" class="minuteHand" />
+    </g>
+    <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
+  </symbol>
+  <symbol id="hrHand">
+    <g id="hours" pointer-events="visible" transform="translate(50%,50%)">
+      <rect x="$-6" y="-60" width="12" height="75" class="hourHand" />
+      <rect x="$-9" y="-58.5" width="6" height="70" class="innerHourHand" />
+    </g>
+    <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
+  </symbol>
+  <symbol id="secHand">
+    <g id="secs" pointer-events="visible" transform="translate(50%,50%)">
+      <rect x="$-2" y="-100" width="4" height="130" class="secondHand" />
+      <rect x="$-6" y="$-130" width="8" height="20" class="secondHand" />
+    </g>
+    <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
+  </symbol>
+  
+ <image x="50%-25" y="50%-75" id="center_image" width="50" height="50" href="steps.png" load="sync" />
+  
+  <text x="50%" y="50%+15"
+        id="center_text"
+        font-family="System-Regular" fill="white"
+        font-size="40"
+        text-anchor="middle">00000</text>
+  
+  <svg width="100%" height="100%">
+    <use id="animationMinHand" href="#minHand" width="100%" height="100%" />
+    <use id="animationSecHand" href="#secHand" width="100%" height="100%" />
+    <use id="animationHourHand" href="#hrHand" width="100%" height="100%" />
+  </svg>
+</svg>
