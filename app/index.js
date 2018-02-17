@@ -1,5 +1,9 @@
 import clock from "clock";
 import document from "document";
+import * as messaging from "messaging";
+
+import { vibration } from "haptics";
+import { display } from "display";
 
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
@@ -11,6 +15,8 @@ clock.granularity = "seconds";
 
 let background = document.getElementById("background");
 let hours = document.getElementsByClassName("hours");
+
+let secHandElements = document.getElementsByClassName("secondHand");
 
 let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
@@ -198,6 +204,23 @@ function changeScene(){
     current_step = 0;
     changeScene();
   }, 10000);
+}
+
+//Settings
+display.addEventListener("change", function(){
+  messaging.peerSocket.onopen = function() {
+    console.log("open");
+  }
+  messaging.peerSocket.onerror = function(err) {
+    // Handle any errors
+    console.log("Connection error: " + err.code + " - " + err.message);
+}
+});
+messaging.peerSocket.onmessage = function(evt) {
+  secHandElements.forEach(function(element){
+    element.style.fill = evt.data.value;
+  });
+  vibration.start("confirmation");
 }
 
 clock.ontick = function(evt) {
