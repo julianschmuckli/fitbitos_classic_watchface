@@ -20,6 +20,7 @@ let day_box = document.getElementsByClassName("day_box");
 
 let center_text = document.getElementById("center_text");
 let center_image = document.getElementById("center_image");
+let bottom_clock = document.getElementById("bottom_clock");
 
 let animationSecHand = document.getElementById("animationSecHand");
 let animationHourHand = document.getElementById("animationHourHand");
@@ -126,6 +127,8 @@ function changeScene(){
     
     center_text.style.display = "none";
     center_image.style.display = "none";
+    
+    bottom_clock.style.display = "none";
   }else{
     date.style.display = "none";
     day_box[0].style.display = "none";
@@ -147,6 +150,7 @@ function changeScene(){
     
     center_text.style.display = "inline";
     center_image.style.display = "inline";
+    bottom_clock.style.display = "inline";
     center_text.text = (today.local.steps || 0);
     center_image.href = "steps.png";
     center_image.height = 50;
@@ -195,3 +199,9 @@ function changeScene(){
     changeScene();
   }, 10000);
 }
+
+clock.ontick = function(evt) {
+  bottom_clock.text = ("0" + evt.date.getHours()).slice(-2) + ":" +
+                      ("0" + evt.date.getMinutes()).slice(-2) + ":" +
+                      ("0" + evt.date.getSeconds()).slice(-2);
+};

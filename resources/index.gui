@@ -3,42 +3,211 @@
   <!-- Hours -->
   <g transform="rotate(0) translate(50%,50%)">
     <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <text x="$-5" y="$+23"
+        font-family="Tungsten" fill="white"
+        font-size="30"
+        text-anchor="middle">XII</text>
   </g>
   <g transform="rotate(30) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   <g transform="rotate(60) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   
   <g transform="rotate(90) translate(50%,50%)">
-  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
   </g>
   <g transform="rotate(120) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   <g transform="rotate(150) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   
   <g transform="rotate(180) translate(50%,50%)">
-  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <text x="$-5" y="$+23"
+        font-family="Tungsten" fill="white"
+        font-size="30"
+        text-anchor="middle">VI</text>
   </g>
   <g transform="rotate(210) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   <g transform="rotate(240) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   
   <g transform="rotate(270) translate(50%,50%)">
-  <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>
+    <text x="$-5" y="$+23"
+        font-family="Tungsten" fill="white"
+        font-size="30"
+        text-anchor="middle">IX</text>
   </g>
   <g transform="rotate(300) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
   </g>
   <g transform="rotate(330) translate(50%,50%)">
-  <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+    <rect x="$" y="$-130" height="30" width="5" class="hours"></rect>
+  </g>
+  
+  <!-- Minutes -->
+  <g transform="rotate(8) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(14) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(20) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(26) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(37) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(43) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(49) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(55) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(67) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(73) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(79) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(85) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(98) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(104) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(110) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(116) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(127) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(133) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(139) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(145) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(157) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(163) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(169) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(175) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(188) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(194) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(200) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(206) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(217) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(223) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(229) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(235) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(247) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(253) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(259) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(265) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(278) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(284) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(290) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(296) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(307) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(313) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(319) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(325) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  
+  <g transform="rotate(337) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(343) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(349) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
+  </g>
+  <g transform="rotate(355) translate(50%,50%)">
+  <circle cx="$" cy="$-120" r="3" class="minutes"></circle>
   </g>
   
   <!-- Day -->
@@ -74,13 +243,19 @@
     <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
   </symbol>
   
- <image x="50%-25" y="50%-75" id="center_image" width="50" height="50" href="steps.png" load="sync" />
+ <image x="50%-25" y="50%-65" id="center_image" width="50" height="50" href="steps.png" load="sync" />
   
-  <text x="50%" y="50%+15"
+  <text x="50%" y="50%+25"
         id="center_text"
-        font-family="System-Regular" fill="white"
+        font-family="System-Bold" fill="white"
         font-size="40"
         text-anchor="middle">00000</text>
+  
+  <text x="50%" y="50%+65"
+        id="bottom_clock"
+        font-family="System-Regular" fill="white"
+        font-size="30"
+        text-anchor="middle">00:00:00</text>
   
   <svg width="100%" height="100%">
     <use id="animationMinHand" href="#minHand" width="100%" height="100%" />

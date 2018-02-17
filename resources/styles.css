@@ -17,6 +17,9 @@
 .hours{
   fill: white;
 }
+.minutes{
+  fill: white;
+}
 
 .opacity{
   opacity:1.0 !important;
