@@ -12,10 +12,10 @@ function Colors(props) {
             {color: 'gold'},
             {color: 'aquamarine'},
             {color: 'deepskyblue'},
+            {color: 'blue'},
             {color: 'plum'},
             {color: 'white'},
             {color: 'green'},
-            {color: 'magenta'},
             {color: 'lime'},
             {color: 'gray'},
             {color: 'lightgray'}

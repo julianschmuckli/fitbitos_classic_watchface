@@ -3,7 +3,6 @@ import document from "document";
 import * as messaging from "messaging";
 
 import { vibration } from "haptics";
-import { display } from "display";
 
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
@@ -207,15 +206,13 @@ function changeScene(){
 }
 
 //Settings
-display.addEventListener("change", function(){
-  messaging.peerSocket.onopen = function() {
-    console.log("open");
-  }
-  messaging.peerSocket.onerror = function(err) {
-    // Handle any errors
-    console.log("Connection error: " + err.code + " - " + err.message);
+messaging.peerSocket.onopen = function() {
+  console.log("open");
 }
-});
+messaging.peerSocket.onerror = function(err) {
+  // Handle any errors
+  console.log("Connection error: " + err.code + " - " + err.message);
+}
 messaging.peerSocket.onmessage = function(evt) {
   secHandElements.forEach(function(element){
     element.style.fill = evt.data.value;
