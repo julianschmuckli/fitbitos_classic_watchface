@@ -1,6 +1,7 @@
 import clock from "clock";
 import document from "document";
 import * as messaging from "messaging";
+import * as fs from "fs";
 
 import { vibration } from "haptics";
 
@@ -206,6 +207,18 @@ function changeScene(){
 }
 
 //Settings
+var previous_color;
+try{
+  previous_color = fs.readFileSync("color_sec_hand.txt", "utf-8");
+}catch(e){
+  previous_color = "";
+}
+if(previous_color != ""){
+  secHandElements.forEach(function(element){
+    element.style.fill = previous_color;
+  });
+}
+
 messaging.peerSocket.onopen = function() {
   console.log("open");
 }
@@ -217,6 +230,7 @@ messaging.peerSocket.onmessage = function(evt) {
   secHandElements.forEach(function(element){
     element.style.fill = evt.data.value;
   });
+  fs.writeFileSync("color_sec_hand.txt", evt.data.value, "utf-8");
   vibration.start("confirmation");
 }
 

@@ -8,12 +8,11 @@ let KEY_COLOR = "myColor";
 //Translations
 let language = locale.language;
 
-settingsStorage.setItem("myColor", 5);
-
 translate("color_seconds_hand","Farbe des Sekundenzeigers","Color of seconds hand");
 
 // Settings have been changed
 settingsStorage.onchange = function(evt) {
+  console.log("Settings changed");
   sendValue(evt.key, evt.newValue);
 }
 
