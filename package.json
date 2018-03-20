@@ -9,6 +9,10 @@
       "access_activity",
       "access_heart_rate"
     ],
+    "buildTargets": [
+      "higgs",
+      "meson"
+    ],
     "i18n": {
       "en": {
         "name": "Classic"
