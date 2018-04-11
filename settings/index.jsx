@@ -22,6 +22,12 @@ function Colors(props) {
           ]}
         />
       </Section>
+      <Section>
+        <Toggle
+          settingsKey="alwaysOn"
+          label={props.settingsStorage.getItem("t_always_on_display")}
+        />
+      </Section>
     </Page>
   );
 }

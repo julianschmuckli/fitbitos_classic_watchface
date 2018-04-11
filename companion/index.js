@@ -4,11 +4,13 @@ import { locale } from "user-settings";
 import { me } from "companion";
 
 let KEY_COLOR = "myColor";
+let KEY_ALWAYSON = "alwaysOn";
 
 //Translations
 let language = locale.language;
 
 translate("color_seconds_hand","Farbe des Sekundenzeigers","Color of seconds hand");
+translate("always_on_display","Always-On einschalten", "Turn on Always-On");
 
 // Settings have been changed
 settingsStorage.onchange = function(evt) {
@@ -20,6 +22,7 @@ settingsStorage.onchange = function(evt) {
 if (me.launchReasons.settingsChanged) {
   // Send the value of the setting
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
+  sendValue(KEY_ALWAYSON, settingsStorage.getItem(KEY_ALWAYSON))
 }
 
 function sendValue(key, val) {
@@ -43,6 +46,11 @@ function translate(key, value_de, value_en){
   console.log(language);
   switch(language){
     case 'de_DE':
+    case 'de_CH':
+    case 'de_AT':
+    case 'de-DE':
+    case 'de-CH':
+    case 'de-AT':
       settingsStorage.setItem("t_"+key, value_de);
       break;
     default:

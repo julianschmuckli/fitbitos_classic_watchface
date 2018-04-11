@@ -4,14 +4,12 @@ import * as messaging from "messaging";
 import * as fs from "fs";
 
 import { vibration } from "haptics";
+import { display } from "display";
 
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
 
 import * as util from "../common/utils.js";
-
-// Update the clock every second
-clock.granularity = "seconds";
 
 let background = document.getElementById("background");
 let hours = document.getElementsByClassName("hours");
@@ -33,6 +31,8 @@ let animationHourHand = document.getElementById("animationHourHand");
 let animationMinHand = document.getElementById("animationMinHand");
 
 var correction = 3;
+
+var alwaysOn, alwaysOnPaused = false;
 
 // Returns an angle (0-360) for the current hour in the day, including minutes
 function hoursToAngle(hours, minutes) {
@@ -74,10 +74,21 @@ function updateClock() {
   
   date.text = util.zeroPad(today.getDate());
   
+  if(alwaysOn != "true"){
+    requestAnimationFrame(updateClock);
+  }else{
+    if(today.getHours() > 21 || today.getHours() < 6){
+      display.autoOff = true;
+      alwaysOnPaused = true;
+    }else{
+      alwaysOnPaused = false;
+      display.autoOff = false;
+    }
+  }
+}
+if(alwaysOn != "true"){
   requestAnimationFrame(updateClock);
 }
-requestAnimationFrame(updateClock);
-
 //Scenechanger
 
 var current_step = 0;
@@ -126,7 +137,12 @@ function changeScene(){
   if(current_step == 0){    
     hourHand.style.display = "inline";
     minHand.style.display = "inline";
-    secHand.style.display = "inline";
+    if(alwaysOn!="true"){
+      secHand.style.display = "inline";
+    }else{
+      secHand.style.display = "none";
+    }
+    
     date.style.display = "inline";
     day_box[0].style.display = "inline";
     day_box[1].style.display = "inline";
@@ -219,6 +235,13 @@ if(previous_color != ""){
   });
 }
 
+try{
+  alwaysOn = fs.readFileSync("always_on.txt","utf-8");
+}catch(e){
+  alwaysOn = "false";
+}
+activateAlwaysOn(alwaysOn);
+
 messaging.peerSocket.onopen = function() {
   console.log("open");
 }
@@ -227,15 +250,52 @@ messaging.peerSocket.onerror = function(err) {
   console.log("Connection error: " + err.code + " - " + err.message);
 }
 messaging.peerSocket.onmessage = function(evt) {
-  secHandElements.forEach(function(element){
-    element.style.fill = evt.data.value;
-  });
-  fs.writeFileSync("color_sec_hand.txt", evt.data.value, "utf-8");
-  vibration.start("confirmation");
+  if(evt.data.key == "myColor"){
+    secHandElements.forEach(function(element){
+      element.style.fill = evt.data.value;
+    });
+    fs.writeFileSync("color_sec_hand.txt", evt.data.value, "utf-8");
+    vibration.start("confirmation");
+  }else if(evt.data.key == "alwaysOn"){
+    alwaysOn = evt.data.value+"";
+    
+    activateAlwaysOn(alwaysOn);
+    
+    fs.writeFileSync("always_on.txt", evt.data.value+"", "utf-8");
+  }
 }
 
 clock.ontick = function(evt) {
-  bottom_clock.text = ("0" + evt.date.getHours()).slice(-2) + ":" +
-                      ("0" + evt.date.getMinutes()).slice(-2) + ":" +
-                      ("0" + evt.date.getSeconds()).slice(-2);
+  if(alwaysOn=="true"){
+    bottom_clock.text = ("0" + evt.date.getHours()).slice(-2) + ":" +
+                        ("0" + evt.date.getMinutes()).slice(-2);
+    updateClock();
+  }else{
+    bottom_clock.text = ("0" + evt.date.getHours()).slice(-2) + ":" +
+                        ("0" + evt.date.getMinutes()).slice(-2) + ":" +
+                        ("0" + evt.date.getSeconds()).slice(-2);
+  }
 };
+
+function activateAlwaysOn(bool){
+  if(bool == "true"){
+    display.autoOff = false;
+    display.addEventListener("change", turnOnDisplay);
+    display.brightnessOverride = 0.0;
+    clock.granularity = "minutes";
+  }else{
+    display.autoOff = true;
+    display.addEventListener("change", turnOnDisplay);
+    display.brightnessOverride = undefined;
+    clock.granularity = "seconds";
+    requestAnimationFrame(updateClock);
+  }
+}
+
+function turnOnDisplay(){
+  if(alwaysOn == "true" && !alwaysOnPaused){
+    display.on = true;
+  }else{
+    
+  }
+}
