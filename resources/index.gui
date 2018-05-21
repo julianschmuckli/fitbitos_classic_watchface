@@ -1,5 +1,6 @@
 <svg viewport-fill="#000000">
   <rect x="0" y="0" pointer-events="visible" width="100%" height="100%" id="background" fill="#000000" opacity="0" layer="1000" />
+  <text id="battery" x="10" y="25" fill="white" font-size="20">100 %</text>
   <!-- Hours -->
   <g transform="rotate(0) translate(50%,50%)">
     <rect x="$" y="$-130" height="35" width="10" class="hours"></rect>

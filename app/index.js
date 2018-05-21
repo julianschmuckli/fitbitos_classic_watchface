@@ -9,6 +9,8 @@ import { display } from "display";
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
 
+import { battery } from "power";
+
 import * as util from "../common/utils.js";
 
 let background = document.getElementById("background");
@@ -30,9 +32,13 @@ let animationSecHand = document.getElementById("animationSecHand");
 let animationHourHand = document.getElementById("animationHourHand");
 let animationMinHand = document.getElementById("animationMinHand");
 
+let meta_battery = document.getElementById("battery");
+
 var correction = 3;
 
 var alwaysOn, alwaysOnPaused = false;
+
+var batteryCorner = false;
 
 // Returns an angle (0-360) for the current hour in the day, including minutes
 function hoursToAngle(hours, minutes) {
@@ -53,7 +59,7 @@ function secondsToAngle(seconds, milli) {
   
   var total = total_seconds+total_millis;
   
-  if( total > 360){
+  if(total > 360){
     total = 360;
   }
   
@@ -84,6 +90,11 @@ function updateClock() {
       alwaysOnPaused = false;
       display.autoOff = false;
     }
+  }
+  
+  //Meta-Information
+  if(batteryCorner=="true"){
+    meta_battery.text = Math.floor(battery.chargeLevel) + "%";
   }
 }
 if(alwaysOn != "true"){
@@ -249,6 +260,15 @@ try{
 }
 activateAlwaysOn(alwaysOn);
 
+try{
+  batteryCorner = fs.readFileSync("battery_corner.txt","utf-8");
+}catch(e){
+  batteryCorner = "false";
+}
+initBatteryCorner(batteryCorner);
+
+//Finish settings
+
 messaging.peerSocket.onopen = function() {
   console.log("open");
 }
@@ -269,6 +289,12 @@ messaging.peerSocket.onmessage = function(evt) {
     activateAlwaysOn(alwaysOn);
     
     fs.writeFileSync("always_on.txt", evt.data.value+"", "utf-8");
+  }else if(evt.data.key == "batteryCorner"){
+    batteryCorner = evt.data.value+"";
+    
+    initBatteryCorner(batteryCorner);
+    
+    fs.writeFileSync("battery_corner.txt", evt.data.value+"", "utf-8");
   }
 }
 
@@ -304,5 +330,14 @@ function turnOnDisplay(){
     display.on = true;
   }else{
     
+  }
+}
+
+function initBatteryCorner(state){
+  console.log(state);
+  if(state=="true"){
+    meta_battery.style.display="inline";
+  }else{
+    meta_battery.style.display="none";
   }
 }

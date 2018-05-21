@@ -27,6 +27,10 @@ function Colors(props) {
           settingsKey="alwaysOn"
           label={props.settingsStorage.getItem("t_always_on_display")}
         />
+        <Toggle
+          settingsKey="batteryCorner"
+          label={props.settingsStorage.getItem("t_battery_corner")}
+        />
       </Section>
     </Page>
   );

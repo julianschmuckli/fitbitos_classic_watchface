@@ -5,12 +5,14 @@ import { me } from "companion";
 
 let KEY_COLOR = "myColor";
 let KEY_ALWAYSON = "alwaysOn";
+let KEY_BATTERY = "batteryCorner";
 
 //Translations
 let language = locale.language;
 
 translate("color_seconds_hand","Farbe des Sekundenzeigers","Color of seconds hand");
 translate("always_on_display","Always-On einschalten", "Turn on Always-On");
+translate("battery_corner","Batterieanzeige", "Display battery");
 
 // Settings have been changed
 settingsStorage.onchange = function(evt) {
@@ -22,7 +24,8 @@ settingsStorage.onchange = function(evt) {
 if (me.launchReasons.settingsChanged) {
   // Send the value of the setting
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
-  sendValue(KEY_ALWAYSON, settingsStorage.getItem(KEY_ALWAYSON))
+  sendValue(KEY_ALWAYSON, settingsStorage.getItem(KEY_ALWAYSON));
+  sendValue(KEY_BATTERYCORNER, settingsStorage.getItem(KEY_BATTERYCORNER));
 }
 
 function sendValue(key, val) {
