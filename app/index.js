@@ -190,7 +190,7 @@ function changeScene(){
     center_image.style.display = "inline";
     bottom_clock.style.display = "inline";
     center_text.text = (today.local.steps || 0);
-    center_image.href = "steps.png";
+    center_image.href = "img/steps.png";
     center_image.height = 50;
     center_image.width = 50;
   }
@@ -198,7 +198,7 @@ function changeScene(){
   //Step 2 - Heart Rate
   var hrm = new HeartRateSensor();
   if(current_step == 2){
-    center_image.href = "heartbeat.png";
+    center_image.href = "img/heartbeat.png";
     center_image.height = 44.5;
 
     center_text.text = "...";
@@ -213,7 +213,7 @@ function changeScene(){
   //Step 3 - Calories
   if(current_step == 3){
     center_text.text = (today.local.calories || 0);
-    center_image.href = "calories.png";
+    center_image.href = "img/calories.png";
     center_image.height = 50;
     center_image.width = 50;
   }
@@ -221,7 +221,7 @@ function changeScene(){
   //Step 4 - Floors
   if(current_step == 4){
     center_text.text = (today.local.elevationGain || 0);
-    center_image.href = "floors.png";
+    center_image.href = "img/floors.png";
     center_image.height = 50;
     center_image.width = 50;
   }
