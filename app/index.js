@@ -9,7 +9,7 @@ import { display } from "display";
 import { today } from "user-activity";
 import { HeartRateSensor } from "heart-rate";
 
-import { battery } from "power";
+import { battery, charger } from "power";
 
 import * as util from "../common/utils.js";
 
@@ -56,13 +56,13 @@ function minutesToAngle(minutes) {
 function secondsToAngle(seconds, milli) {
   var total_seconds = (360 / 60) * seconds;
   var total_millis = (360 / 60 / 1000) * milli;
-  
+
   var total = total_seconds+total_millis;
-  
+
   if(total > 360){
     total = 360;
   }
-  
+
   return total;
 }
 
@@ -77,9 +77,9 @@ function updateClock() {
   hourHand.groupTransform.rotate.angle = hoursToAngle(hours, mins);
   minHand.groupTransform.rotate.angle = minutesToAngle(mins);
   secHand.groupTransform.rotate.angle = secondsToAngle(secs,milli);
-  
+
   date.text = util.zeroPad(today.getDate());
-  
+
   if(alwaysOn != "true"){
     requestAnimationFrame(updateClock);
   }else{
@@ -91,10 +91,15 @@ function updateClock() {
       display.autoOff = false;
     }
   }
-  
+
   //Meta-Information
   if(batteryCorner=="true"){
     meta_battery.text = Math.floor(battery.chargeLevel) + "%";
+    if(battery.chargeLevel <= 16 || charger.connected){ // Battery icon flows in
+      meta_battery.y=50;
+    }else{
+      meta_battery.y=25;
+    }
   }
 }
 if(alwaysOn != "true"){
@@ -136,16 +141,16 @@ secHand.onclick = function(e) {
 function forward(){
   current_step++;
   console.log("current_step: "+current_step);
-  
+
   changeScene();
 }
 
 var timeout;
 function changeScene(){
   clearTimeout(timeout);
-  
+
   //Step Main - Analog Clock
-  if(current_step == 0){    
+  if(current_step == 0){
     hourHand.style.display = "inline";
     minHand.style.display = "inline";
     if(alwaysOn!="true"){
@@ -153,34 +158,34 @@ function changeScene(){
     }else{
       secHand.style.display = "none";
     }
-    
+
     date.style.display = "inline";
     day_box[0].style.display = "inline";
     day_box[1].style.display = "inline";
-    
+
     center_text.style.display = "none";
     center_image.style.display = "none";
-    
+
     bottom_clock.style.display = "none";
   }else{
     date.style.display = "none";
     day_box[0].style.display = "none";
     day_box[1].style.display = "none";
   }
-  
+
   //Step 1 - Steps
-  
+
   if(current_step == 1){
     animationSecHand.animate("enable");
     animationHourHand.animate("enable");
     animationMinHand.animate("enable");
-    
+
     setTimeout(function(){
       hourHand.style.display = "none";
       minHand.style.display = "none";
       secHand.style.display = "none";
     }, 299);
-    
+
     center_text.style.display = "inline";
     center_image.style.display = "inline";
     bottom_clock.style.display = "inline";
@@ -189,13 +194,13 @@ function changeScene(){
     center_image.height = 50;
     center_image.width = 50;
   }
-  
+
   //Step 2 - Heart Rate
   var hrm = new HeartRateSensor();
   if(current_step == 2){
     center_image.href = "heartbeat.png";
     center_image.height = 44.5;
-    
+
     center_text.text = "...";
     hrm.onreading = function() {
       center_text.text = hrm.heartRate;
@@ -204,7 +209,7 @@ function changeScene(){
   }else{
     hrm.stop();
   }
-  
+
   //Step 3 - Calories
   if(current_step == 3){
     center_text.text = (today.local.calories || 0);
@@ -212,7 +217,7 @@ function changeScene(){
     center_image.height = 50;
     center_image.width = 50;
   }
-  
+
   //Step 4 - Floors
   if(current_step == 4){
     center_text.text = (today.local.elevationGain || 0);
@@ -220,7 +225,7 @@ function changeScene(){
     center_image.height = 50;
     center_image.width = 50;
   }
-  
+
   //Step 5 - Active Minutes
   if(current_step == 5){
     center_text.text = (today.local.activeMinutes || 0);
@@ -228,12 +233,12 @@ function changeScene(){
     center_image.height = 50;
     center_image.width = 50;
   }
-  
+
   //Back to step main
   if(current_step == 5){
     current_step = -1;
   }
-  
+
   timeout = setTimeout(function(){
     current_step = 0;
     changeScene();
@@ -285,15 +290,15 @@ messaging.peerSocket.onmessage = function(evt) {
     vibration.start("confirmation");
   }else if(evt.data.key == "alwaysOn"){
     alwaysOn = evt.data.value+"";
-    
+
     activateAlwaysOn(alwaysOn);
-    
+
     fs.writeFileSync("always_on.txt", evt.data.value+"", "utf-8");
   }else if(evt.data.key == "batteryCorner"){
     batteryCorner = evt.data.value+"";
-    
+
     initBatteryCorner(batteryCorner);
-    
+
     fs.writeFileSync("battery_corner.txt", evt.data.value+"", "utf-8");
   }
 }
@@ -329,7 +334,7 @@ function turnOnDisplay(){
   if(alwaysOn == "true" && !alwaysOnPaused){
     display.on = true;
   }else{
-    
+
   }
 }
 

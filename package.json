@@ -1,4 +1,8 @@
 {
+  "devDependencies": {
+    "@fitbit/sdk": "~1.0.0",
+    "@fitbit/sdk-cli": "^1.0.0"
+  },
   "fitbit": {
     "appUUID": "236d18d3-961a-4526-be95-10765924d9b2",
     "appType": "clockface",
@@ -21,5 +25,8 @@
         "name": "Classic"
       }
     }
+  },
+  "scripts": {
+    "build": "fitbit-build"
   }
 }
