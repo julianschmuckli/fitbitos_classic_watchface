@@ -229,13 +229,22 @@ function changeScene(){
   //Step 5 - Active Minutes
   if(current_step == 5){
     center_text.text = (today.local.activeMinutes || 0);
-    center_image.href = "active_minutes.png";
+    center_image.href = "img/active_minutes.png";
+    center_image.height = 50;
+    center_image.width = 50;
+  }
+
+  //Step 6 - Active Minutes
+  if(current_step == 6){
+    var distance = (today.local.distance / 1000).toFixed(2);
+    center_text.text = (distance || 0);
+    center_image.href = "img/distance.png";
     center_image.height = 50;
     center_image.width = 50;
   }
 
   //Back to step main
-  if(current_step == 5){
+  if(current_step == 6){
     current_step = -1;
   }
 
