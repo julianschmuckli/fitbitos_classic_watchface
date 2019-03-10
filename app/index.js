@@ -291,7 +291,7 @@ messaging.peerSocket.onerror = function(err) {
   console.log("Connection error: " + err.code + " - " + err.message);
 }
 messaging.peerSocket.onmessage = function(evt) {
-  if(evt.data.key == "myColor"){
+  if(evt.data.key == "secondsColor"){
     secHandElements.forEach(function(element){
       element.style.fill = evt.data.value;
     });

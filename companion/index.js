@@ -3,16 +3,19 @@ import * as messaging from "messaging";
 import { locale } from "user-settings";
 import { me } from "companion";
 
-let KEY_COLOR = "myColor";
+let KEY_COLOR = "secondsColor";
+let KEY_COLOR_HOURS_MINUTES = "hoursminutesColor";
 let KEY_ALWAYSON = "alwaysOn";
 let KEY_BATTERY = "batteryCorner";
 
 //Translations
 let language = locale.language;
 
-translate("color_seconds_hand","Farbe des Sekundenzeigers","Color of seconds hand");
+translate("color_seconds_hand","Sekundenzeiger","Second hand");
+translate("color_hoursminutes_hand","Stunden- & Minutenzeiger","Hour and minutes hand");
 translate("always_on_display","Always-On einschalten", "Turn on Always-On");
 translate("battery_corner","Batterieanzeige", "Display battery");
+translate("custom_colors","Benutzerdefinierte Farben", "Custom colors");
 
 // Settings have been changed
 settingsStorage.onchange = function(evt) {
@@ -24,6 +27,7 @@ settingsStorage.onchange = function(evt) {
 if (me.launchReasons.settingsChanged) {
   // Send the value of the setting
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
+  sendValue(KEY_COLOR_HOURS_MINUTES, settingsStorage.getItem(KEY_COLOR_HOURS_MINUTES));
   sendValue(KEY_ALWAYSON, settingsStorage.getItem(KEY_ALWAYSON));
   sendValue(KEY_BATTERYCORNER, settingsStorage.getItem(KEY_BATTERYCORNER));
 }
