@@ -17,6 +17,8 @@ let background = document.getElementById("background");
 let hours = document.getElementsByClassName("hours");
 
 let secHandElements = document.getElementsByClassName("secondHand");
+let minHandElements = document.getElementsByClassName("minuteHand");
+let hourHandElements = document.getElementsByClassName("hourHand");
 
 let hourHand = document.getElementById("hours");
 let minHand = document.getElementById("mins");
@@ -296,6 +298,15 @@ messaging.peerSocket.onmessage = function(evt) {
       element.style.fill = evt.data.value;
     });
     fs.writeFileSync("color_sec_hand.txt", evt.data.value, "utf-8");
+    vibration.start("confirmation");
+  }else if(evt.data.key == "hoursminutesColor"){
+    minHandElements.forEach(function(element){
+      element.style.fill = evt.data.value;
+    });
+    hourHandElements.forEach(function(element){
+      element.style.fill = evt.data.value;
+    });
+    fs.writeFileSync("color_hour_hand.txt", evt.data.value, "utf-8");
     vibration.start("confirmation");
   }else if(evt.data.key == "alwaysOn"){
     alwaysOn = evt.data.value+"";

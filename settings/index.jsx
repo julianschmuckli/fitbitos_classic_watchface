@@ -2,8 +2,8 @@ function Colors(props) {
   return (
     <Page>
       <Section
-        title={<Text bold>{props.settingsStorage.getItem("t_custom_colors")}</Text>}>
-        <Text>{props.settingsStorage.getItem("t_color_hoursminutes_hand")}</Text>
+        title={<Text bold>Custom colors</Text>}>
+        <Text>Hours- and minutes hand</Text>
         <ColorSelect
           settingsKey="hoursminutesColor"
           centered={true}
@@ -22,7 +22,7 @@ function Colors(props) {
             {color: 'lightgray'}
           ]}
         />
-        <Text>{props.settingsStorage.getItem("t_color_seconds_hand")}</Text>
+        <Text>Seconds hand</Text>
         <ColorSelect
           settingsKey="secondsColor"
           centered={true}
@@ -45,11 +45,11 @@ function Colors(props) {
       <Section>
         <Toggle
           settingsKey="alwaysOn"
-          label={props.settingsStorage.getItem("t_always_on_display")}
+          label="Activate Always-On Display"
         />
         <Toggle
           settingsKey="batteryCorner"
-          label={props.settingsStorage.getItem("t_battery_corner")}
+          label="Show battery indicator"
         />
       </Section>
     </Page>

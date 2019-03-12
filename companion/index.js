@@ -8,15 +8,6 @@ let KEY_COLOR_HOURS_MINUTES = "hoursminutesColor";
 let KEY_ALWAYSON = "alwaysOn";
 let KEY_BATTERY = "batteryCorner";
 
-//Translations
-let language = locale.language;
-
-translate("color_seconds_hand","Sekundenzeiger","Second hand");
-translate("color_hoursminutes_hand","Stunden- & Minutenzeiger","Hour and minutes hand");
-translate("always_on_display","Always-On einschalten", "Turn on Always-On");
-translate("battery_corner","Batterieanzeige", "Display battery");
-translate("custom_colors","Benutzerdefinierte Farben", "Custom colors");
-
 // Settings have been changed
 settingsStorage.onchange = function(evt) {
   console.log("Settings changed");
