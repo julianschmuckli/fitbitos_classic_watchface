@@ -232,7 +232,7 @@
   <symbol id="hrHand">
     <g id="hours" pointer-events="visible" transform="translate(50%,50%)">
       <rect x="$-6" y="-60" width="12" height="75" class="hourHand" />
-      <!--<rect x="$-9" y="-58.5" width="6" height="70" class="innerHourHand hourHand" />-->
+      <rect x="$-9" y="-58.5" width="6" height="70" class="innerHourHand" />
     </g>
     <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
   </symbol>

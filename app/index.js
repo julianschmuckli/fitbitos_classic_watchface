@@ -141,7 +141,12 @@ secHand.onclick = function(e) {
 }
 
 function forward(){
-  current_step++;
+  if(today.local.elevationGain === undefined && current_step === 3){ //If elevationGain is not available (for ex. Fitbit Versa Lite)
+    current_step += 2;
+  } else {
+    current_step++;
+  }
+
   console.log("current_step: "+current_step);
 
   changeScene();
@@ -257,6 +262,7 @@ function changeScene(){
 }
 
 //Settings
+//Second hands
 var previous_color;
 try{
   previous_color = fs.readFileSync("color_sec_hand.txt", "utf-8");
@@ -265,6 +271,22 @@ try{
 }
 if(previous_color != ""){
   secHandElements.forEach(function(element){
+    element.style.fill = previous_color;
+  });
+}
+
+//Hour and Minutes hands
+var previous_color;
+try{
+  previous_color = fs.readFileSync("color_hour_hand.txt", "utf-8");
+}catch(e){
+  previous_color = "";
+}
+if(previous_color != ""){
+  hourHandElements.forEach(function(element){
+    element.style.fill = previous_color;
+  });
+  minHandElements.forEach(function(element){
     element.style.fill = previous_color;
   });
 }

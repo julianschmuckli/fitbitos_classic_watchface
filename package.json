@@ -1,7 +1,7 @@
 {
   "devDependencies": {
-    "@fitbit/sdk": "~1.0.0",
-    "@fitbit/sdk-cli": "^1.0.0"
+    "@fitbit/sdk": "~3.1.0",
+    "@fitbit/sdk-cli": "^1.6.0"
   },
   "fitbit": {
     "appUUID": "236d18d3-961a-4526-be95-10765924d9b2",
@@ -15,7 +15,8 @@
     ],
     "buildTargets": [
       "higgs",
-      "meson"
+      "meson",
+      "gemini"
     ],
     "i18n": {
       "en": {

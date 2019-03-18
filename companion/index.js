@@ -20,7 +20,7 @@ if (me.launchReasons.settingsChanged) {
   sendValue(KEY_COLOR, settingsStorage.getItem(KEY_COLOR));
   sendValue(KEY_COLOR_HOURS_MINUTES, settingsStorage.getItem(KEY_COLOR_HOURS_MINUTES));
   sendValue(KEY_ALWAYSON, settingsStorage.getItem(KEY_ALWAYSON));
-  sendValue(KEY_BATTERYCORNER, settingsStorage.getItem(KEY_BATTERYCORNER));
+  sendValue(KEY_BATTERY, settingsStorage.getItem(KEY_BATTERY));
 }
 
 function sendValue(key, val) {
