@@ -223,6 +223,13 @@
 
   <!-- Clock -->
 
+  <symbol id="secHand">
+    <g id="secs" pointer-events="visible" transform="translate(50%,50%)">
+      <rect x="$-2" y="-100" width="4" height="130" class="secondHand" />
+      <rect x="$-6" y="$-130" width="8" height="20" class="secondHand" />
+    </g>
+    <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
+  </symbol>
   <symbol id="minHand">
     <g id="mins" pointer-events="visible" transform="translate(50%,50%)">
       <rect x="$-4" y="-95" width="8" height="110" class="minuteHand" />
@@ -232,14 +239,7 @@
   <symbol id="hrHand">
     <g id="hours" pointer-events="visible" transform="translate(50%,50%)">
       <rect x="$-6" y="-60" width="12" height="75" class="hourHand" />
-      <rect x="$-9" y="-58.5" width="6" height="70" class="innerHourHand" />
-    </g>
-    <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
-  </symbol>
-  <symbol id="secHand">
-    <g id="secs" pointer-events="visible" transform="translate(50%,50%)">
-      <rect x="$-2" y="-100" width="4" height="130" class="secondHand" />
-      <rect x="$-6" y="$-130" width="8" height="20" class="secondHand" />
+      <rect x="$-9" y="-58" width="6" height="70" class="innerHourHand" />
     </g>
     <animate attributeName="opacity" begin="enable" from="1" to="0" dur="0.3" final="restore" />
   </symbol>
